@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "user": "admin",
+      "password": 123456
+    },
+    {
+      "id": 2,
+      "user": "gestor",
+      "password": 123456
+    },
+    {
+      "id": 3,
+      "user": "func",
+      "password": 123456
+    }
+  ],
+  "colaboradores": [
+    {
+      "nome": "Pedro",
+      "email": "email@email.com",
+      "contato": "36364545125",
+      "endereco": "andress",
+      "cep": "55055192",
+      "bairro": "Carumba",
+      "cidade": "Pajé",
+      "estado": "AM",
+      "cpf": "0654856435",
+      "profissao": "Psicólogo",
+      "paciente": null,
+      "id": 7
+    },
+    {
+      "nome": "Marcelo",
+      "email": "joaorlsmar@gmail.com",
+      "contato": "85665645225",
+      "endereco": "andress",
+      "cep": "5849785462",
+      "bairro": "cambina",
+      "cidade": "jampa",
+      "estado": "pa",
+      "cpf": "09545878",
+      "profissao": "Psicólogo",
+      "paciente": null,
+      "id": 8
+    }
+  ]
+}

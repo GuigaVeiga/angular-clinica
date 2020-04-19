@@ -1,0 +1,14 @@
+.container-update {
+	margin-top: 64px;
+}
+
+form {
+	padding-left: 30px;
+	padding-right: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	margin: 20px 15px 15px 30px;
+}

@@ -1,0 +1,37 @@
+<h1 mat-dialog-title> Confirme para Deletar </h1>
+<mat-dialog-content>
+
+	<form>
+		<mat-form-field>
+			<input matInput placeholder="Nome" disabled 
+			[value]="contributors?.nome" name="nome">
+		</mat-form-field>
+
+		<mat-form-field>
+			<input matInput placeholder="CPF" disabled 
+			[value]="contributors?.cpf" name="cpf">
+		</mat-form-field>
+
+		<mat-form-field>
+			<input matInput placeholder="E-mail" disabled 
+			[value]="contributors?.email" name="email">
+		</mat-form-field>
+
+		<mat-form-field>
+			<input matInput placeholder="Profissão" disabled 
+			[value]="contributors?.profissao" name="profissao">
+		</mat-form-field>
+
+		<mat-form-field>
+			<input matInput placeholder="Contato" disabled 
+			[value]="contributors?.contato" name="contato">
+		</mat-form-field>
+
+	</form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close >Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" (click)="onClickDelete()" cdkFocusInitial color='warn'>Deletar</button>
+</mat-dialog-actions>

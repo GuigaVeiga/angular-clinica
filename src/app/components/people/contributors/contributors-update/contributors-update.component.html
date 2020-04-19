@@ -1,0 +1,62 @@
+<div class="container-update">
+
+	<mat-card>
+		<mat-card-title>
+			Atualizar Dados
+		</mat-card-title>
+
+		<form>
+
+			<mat-form-field>
+				<input matInput placeholder="Nome" [(ngModel)]="contributors.nome" name="nome">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="CPF" [(ngModel)]="contributors.cpf" name="cpf">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="E-mail" [(ngModel)]="contributors.email" name="email">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Profissão" [(ngModel)]="contributors.profissao" name="profissao">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Contato" [(ngModel)]="contributors.contato" name="contato">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="CEP" [(ngModel)]="contributors.cep" name="cep">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Endereço" [(ngModel)]="contributors.endereco" name="endereco">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Bairro" [(ngModel)]="contributors.bairro" name="Bairro">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Cidade" [(ngModel)]="contributors.cidade" name="cidade">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput placeholder="Estado" [(ngModel)]="contributors.estado" name="estado">
+			</mat-form-field>
+
+		</form>
+
+		<button mat-raised-button color="primary" (click)="updateContributors()">
+		Atualizar
+		</button><button mat-raised-button (click)="onCancel()">
+
+
+			Cancelar
+		</button>
+
+	</mat-card>
+
+</div>

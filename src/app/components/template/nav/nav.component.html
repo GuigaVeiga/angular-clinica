@@ -1,0 +1,22 @@
+<mat-sidenav-container class="container">
+	<mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64" >
+		<mat-nav-list class="nav-list">
+
+			<a mat-list-item routerLink='/' >
+				<i class="material-icons">view_list</i>
+				Infor Gerais
+			</a>
+			<a mat-list-item routerLink='/society'>
+				<i class="material-icons">account_circle</i>
+				Pacientes
+			</a>
+			<a mat-list-item routerLink='/cont'>
+				<i class="material-icons">list</i>
+				Profissionais
+			</a>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content class="content">
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
