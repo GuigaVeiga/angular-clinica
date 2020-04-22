@@ -4,6 +4,7 @@ import { ContributorsService } from '../services/contributors-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ContributorsDeleteComponent } from '../contributors-delete/contributors-delete.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscribable, Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ContributorsReadComponent implements OnInit {
 
 	contributors: Contributors[];
+
+	subs: Subscription;
 	displayedColumns = ['id', 'nome', 'profissao', 'email', 'contato', 'action']
 
 	constructor(
@@ -23,37 +26,27 @@ export class ContributorsReadComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		// Iniciar a tabela com os dados
-		this.serviceCont.read().subscribe((cont) => {
+		//Iniciar a tabela com os dados.
+
+		this.subs = this.serviceCont.read().subscribe((cont) => {
 			this.contributors = cont;
 		})
 	}
 
 	// Abrirá um component modal para confirmar o deletar 
 	onDelete(id) {
-		console.log( typeof(id) )
+		console.log(typeof (id))
 		const dialogRef = this.dialog.open(ContributorsDeleteComponent, {
 			width: '300px',
 			data: { id }
 		});
 		// após exlusão, dá um tipo refresh na rota, para atualizar a tela.
-		
-		
+
 	}
 
 	ngOnDestroy() {
-		
+		this.subs.unsubscribe()
 	}
-
-
-	// ngAfterViewInit(){
-	// 	console.log( "ngAfterViewInit()" )
-	// }
-
-	// ngAfterViewChecked(){
-	// 	console.log("ngAfterViewChecked()")
-	// }
-
 
 
 }

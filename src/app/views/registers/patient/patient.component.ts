@@ -3,10 +3,10 @@ import { HeaderService } from 'src/app/components/template/header/header.service
 
 @Component({
   selector: 'app-society',
-  templateUrl: './society.component.html',
-  styleUrls: ['./society.component.css']
+  templateUrl: './patient.component.html',
+  styleUrls: ['./patient.component.css']
 })
-export class SocietyComponent implements OnInit {
+export class PatientComponent implements OnInit {
 
   constructor(private headerService: HeaderService) {
 	headerService.headerData = {
