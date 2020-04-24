@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component';
-import { ContribuitorRoutingModule } from './components/people/contributors/contributor/contribuitor-routing.module';
+import { ContribuitorRoutingModule } from './components/people/contributors/contribuitor-routing.module';
+import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 // import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 // import { SocietyComponent } from './views/registers/society/society.component';
 // import { ContributorsCreateComponent } from './components/people/contributors/contributors-create/contributors-create.component';
@@ -12,14 +13,15 @@ import { ContribuitorRoutingModule } from './components/people/contributors/cont
 
 const routes: Routes = [
 
-	{path: '', redirectTo: '/home', pathMatch: 'full'},
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: "home", component: HomeComponent },
 
-	{ path: "cont", 
-	loadChildren: () => import('../app/components/people/contributors/contributor/contributor.module')
-	.then(m => m.ContributorModule)
-},
-
+	{ path: "cont", component: ContributorsComponent },
+	{
+		path: 'contributor',
+		loadChildren: () => import('./components/people/contributors/contributor.module')
+			.then(m => m.ContributorModule)
+	},
 
 	// { path: "cont/:id", component: ContributorsComponent},
 	// {path: 'cont/create', component: ContributorsCreateComponent},

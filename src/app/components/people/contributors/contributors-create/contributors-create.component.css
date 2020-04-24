@@ -1,13 +1,48 @@
+
+/* @media screen and (min-width: 300px) and (max-width: 600px) {} */
+
 .container-create {
 	margin-top: 64px;
+
 }
-form {
+
+.form-cad {
 	padding-left: 30px;
 	padding-right: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
+
+mat-form-field {
+	width: 100%;
+	margin-left: 8px;
+}
+
+
 button {
 	margin: 20px 15px 15px 30px;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+	margin-left: 16px;
+  }
+
+.label-gender {
+	margin-left: 0;
+	margin-right: 18px;
+  }
+
+  mat-radio-group {
+	  display: inline;
+	  align-items: flex-start;
+	  /* justify-self: start; */
+	   /* text-justify: initial; */
+	   align-content: initial;
+  }
+
+  .container {
+	  width: 50px;
+	  height: 50px;
+	  background-color: grey;
+  }

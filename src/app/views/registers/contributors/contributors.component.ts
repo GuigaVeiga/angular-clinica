@@ -23,7 +23,7 @@ export class ContributorsComponent implements OnInit {
 
   createNewProfessional(): void{
 
-	  this.router.navigate(['/cont/create'])
+	  this.router.navigate(['/contributor'])
 
   }
 
