@@ -15,8 +15,9 @@ import { FormsModule } from '@angular/forms'
 
 
 import { ContributorModule } from './components/people/contributors/contributor.module';
-import { CellMaskDirective } from './components/directives/cell-mask.directive';
+
 import { MaterialModule } from './material/material.module';
+import { ContributorformComponent } from './components/shared/baseforms/contributorform/contributorform.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { MaterialModule } from './material/material.module';
 		ContributorsComponent,
 		PatientComponent,
 		// PatientCreateComponent,
-		CellMaskDirective,
+		
 	],
 	imports: [
 		BrowserModule,

@@ -14,6 +14,7 @@ import { ContributorsService } from './services/contributors-service.service';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { MaterialModule } from 'src/app/material/material.module';
+import { ContributorformComponent } from '../../shared/baseforms/contributorform/contributorform.component';
 
 @NgModule({
 	declarations: [

@@ -4,7 +4,7 @@ export interface Andress {
 	zipcode: number
 	street: string
 	numberHome: number
-	complement: string
+	complement?: string
 	cityBlock: string
 	city: string
 	state: string

@@ -7,7 +7,7 @@
 
 		<mat-card-content>
 
-			<form [formGroup]="contForm" (ngSubmit)="onSubmit()" class="form-cad">
+			<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-cad">
 
 				<mat-grid-list cols='2' rowHeight='5:1'>
 
@@ -17,45 +17,46 @@
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField" hideRequiredMarker>
 							<mat-label>Nome *</mat-label>
 							<input matInput placeholder="Primeiro Nome" type="text" formControlName="firstName"
 								name="nome">
-							<mat-error *ngIf="contForm.get('firstName').invalid">
+							<mat-error *ngIf="firstName.invalid">
 								{{ getErrorMessage('firstName', 'Nome Obrigatório', 'Nome Obrigatório') }} </mat-error>
 						</mat-form-field>
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField" >
 							<mat-label>Sobre Nome</mat-label>
-							<input matInput placeholder="Restante do Nome" type="text" name="cpf"
+							<input matInput placeholder="Restante do Nome" type="text" name="lastName"
 								formControlName="lastName">
-							<mat-error *ngIf="contForm.get('lastName').invalid">
+							<mat-error *ngIf="lastName.invalid">
 								{{ getErrorMessage('lastName', 'Sobre Nome') }} </mat-error>
 						</mat-form-field>
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField" >
 							<mat-label>CPF *</mat-label>
-							<input matInput placeholder="CPF" name="cpf" type="number" formControlName="cpf">
-							<mat-error *ngIf="contForm.get('cpf').invalid">
+							<input matInput #input maxlength="11" placeholder="CPF" name="cpf" type="number" formControlName="cpf">
+							<mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
+							<mat-error *ngIf="cpf.invalid">
 								{{ getErrorMessage('cpf', 'CPF Oobrigatório', 'Infome apenas números') }} </mat-error>
 						</mat-form-field>
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>RG *</mat-label>
-							<input matInput placeholder="rg" name="rg" type="number" formControlName="cpf">
-							<mat-error *ngIf="contForm.get('rg').invalid">
+							<input matInput placeholder="rg" name="rg" type="number" formControlName="rg">
+							<mat-error *ngIf="rg.invalid">
 								{{ getErrorMessage('rg', 'RG Oobrigatório', 'Infome apenas números') }} </mat-error>
 						</mat-form-field>
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>Data de Nascimento</mat-label>
 							<input matInput placeholder="Data de Nascimento" name="birth" type="date"
 								formControlName="birth">
@@ -63,7 +64,7 @@
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>Idade</mat-label>
 							<input matInput placeholder="Idade" name="age" type="number" formControlName="age">
 						</mat-form-field>
@@ -82,18 +83,18 @@
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>E-mail</mat-label>
 							<input matInput placeholder="user@email.com" name="email" type="email"
 								formControlName="email">
-							<mat-error *ngIf="contForm.get('email').invalid">
+							<mat-error *ngIf="myForm.get('email').invalid">
 								{{ getErrorMessage('email', 'Você deve inserir um Email', 'E-mail Invalido') }}
 							</mat-error>
 						</mat-form-field>
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>Senha *</mat-label>
 							<input matInput placeholder="Senha" name="password" [type]="hide ? 'password' : 'text'"
 								formControlName="password">
@@ -112,7 +113,7 @@
 					</mat-grid-tile> -->
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>Profissão *</mat-label>
 							<input matInput placeholder="Profissão" name="profession" type="text"
 								formControlName="profession">
@@ -120,7 +121,7 @@
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
+						<mat-form-field [appearance]="appearanceField">
 							<mat-label>Telefone Fixo</mat-label>
 							<input matInput placeholder="Contato Fixo" name="contact" type="tel"
 								formControlName="contact">
@@ -128,13 +129,15 @@
 					</mat-grid-tile>
 
 					<mat-grid-tile>
-						<mat-form-field appearance="outline">
-							<mat-label>Celular (Whatsapp) *</mat-label>
-							<input matInput placeholder="Celular" name="cellPhone" type="text"
+						<mat-form-field [appearance]="appearanceField">
+							<mat-label>Celular *</mat-label>
+							<input matInput placeholder="Celular (Whatsapp)" name="cellPhone" type="text"
 								formControlName="cellPhone">
 						</mat-form-field>
 					</mat-grid-tile>
 
+
+					<!-- ENDEREÇO -->
 					<mat-grid-tile colspan='2'>
 						<h3 class="title-address">Endereço</h3>
 
@@ -144,14 +147,14 @@
 					<div formGroupName="address">
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>CEP *</mat-label>
 								<input matInput placeholder="CEP" name="cep" type="number" formControlName="zipcode">
 							</mat-form-field>
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>Rua </mat-label>
 								<input matInput placeholder="Rua: silveira..." name="rua" type="text"
 									formControlName="street">
@@ -159,7 +162,7 @@
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>N° </mat-label>
 								<input matInput placeholder="Numero" name="numberHome" type="number"
 									formControlName="numberHome">
@@ -167,15 +170,15 @@
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>Complemento </mat-label>
-								<input matInput placeholder="Numero" name="Complement" type="text"
-									formControlName="compement">
+								<input matInput placeholder="Numero" name="complement" type="text"
+									formControlName="complement">
 							</mat-form-field>
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>Bairro</mat-label>
 								<input matInput placeholder="Bairro" name="logradouro" type="text"
 									formControlName="cityBlock">
@@ -183,14 +186,14 @@
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>Cidade</mat-label>
 								<input matInput placeholder="Cidade" name="cidade" formControlName="city">
 							</mat-form-field>
 						</mat-grid-tile>
 
 						<mat-grid-tile>
-							<mat-form-field appearance="outline">
+							<mat-form-field [appearance]="appearanceField">
 								<mat-label>Estado</mat-label>
 								<input matInput placeholder="UF: " name="uf" formControlName="state">
 							</mat-form-field>
@@ -200,9 +203,9 @@
 
 				</mat-grid-list>
 
-				<button mat-raised-button color="primary" type="submit">
+				<!-- <button mat-raised-button color="primary" type="submit">
 					Enviar
-				</button>
+				</button> -->
 
 			</form>
 
@@ -216,7 +219,7 @@
 				Cancelar
 			</button>
 
-			<button mat-raised-button color="primary" (click)="salvedContri()">
+			<button mat-raised-button color="primary" (click)="submit()">
 				Salvar
 			</button>
 
@@ -226,7 +229,7 @@
 
 </div>
 
-<div>
+<!-- <div>
 	<h3>Dados</h3>
 	{{ debugForm | json }}
 </div>
@@ -234,4 +237,4 @@
 <div>
 	<h3>Erros</h3>
 	{{ errorsForm | json }}
-</div>
+</div> -->
