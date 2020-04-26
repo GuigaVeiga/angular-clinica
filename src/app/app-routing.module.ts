@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component';
-import { ContribuitorRoutingModule } from './components/people/contributors/contribuitor-routing.module';
+import { ProfissionalRoutingModule } from './componentes/pessoas/profissionais/contribuitor-routing.module';
 import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 // import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 // import { SocietyComponent } from './views/registers/society/society.component';
@@ -13,25 +13,25 @@ import { ContributorsComponent } from './views/registers/contributors/contributo
 
 const routes: Routes = [
 
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: "home", component: HomeComponent },
+ { path: '', redirectTo: '/home', pathMatch: 'full' },
+ { path: 'home', component: HomeComponent },
 
-	{ path: "cont", component: ContributorsComponent },
-	{
-		path: 'contributor',
-		loadChildren: () => import('./components/people/contributors/contributor.module')
-			.then(m => m.ContributorModule)
-	},
+ { path: 'infor-profissional', component: ContributorsComponent },
+ {
+  path: 'profissional',
+  loadChildren: () => import('./componentes/pessoas/profissionais/contributor.module')
+   .then(m => m.ContributorModule)
+ },
 
-	// { path: "cont/:id", component: ContributorsComponent},
-	// {path: 'cont/create', component: ContributorsCreateComponent},
-	// { path: "cont/update/:id", component: ContributorsUpdateComponent},
-	// { path: "society", component: SocietyComponent },
+ // { path: "cont/:id", component: ContributorsComponent},
+ // {path: 'cont/create', component: ContributorsCreateComponent},
+ // { path: "cont/update/:id", component: ContributorsUpdateComponent},
+ // { path: "society", component: SocietyComponent },
 
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+ imports: [RouterModule.forRoot(routes)],
+ exports: [RouterModule]
 })
 export class AppRoutingModule { }

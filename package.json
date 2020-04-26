@@ -2,7 +2,7 @@
   "name": "system-basic",
   "version": "0.0.0",
   "scripts": {
-    "db": "json-server --watch backend/db.json --port 3001",
+    "db": "json-server --watch backend/db.json --port 3002",
     "ng": "ng",
     "start": "npm run db & ng serve",
     "build": "ng build",
