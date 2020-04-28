@@ -26,11 +26,15 @@ export abstract class CreateInterfaceFormComponent {
  };
 
  dadosUsuario = {
+  id: [''],
   codigoUsuario: [''],
   registroClasse: [''],
-  cpf: ['', [Validators.required,
-  Validators.maxLength(11)]],
+  cpf: ['',
+   Validators.compose([Validators.required,
+   Validators.maxLength(11)]),
+  ],
   rg: ['', Validators.compose([
+   Validators.required,
    Validators.minLength(4),
    Validators.maxLength(8),
   ])],
@@ -42,7 +46,7 @@ export abstract class CreateInterfaceFormComponent {
   ])],
   sobreNome: [''],
   dataNascimento: ['', [Validators.required]],
-  idade: [null, [Validators.minLength(1)] ],
+  idade: [null, [Validators.minLength(1)]],
   genero: [''],
   email: ['', [Validators.required, Validators.email]],
   contato: [null],
@@ -58,7 +62,6 @@ export abstract class CreateInterfaceFormComponent {
  myForm: FormGroup;
  debugForm: any;
  errorsForm: any;
- appearanceField = 'outline';
 
  constructor(
   public fb: FormBuilder,
@@ -71,12 +74,13 @@ export abstract class CreateInterfaceFormComponent {
  onSubmit() {
   if (!this.myForm.invalid) {
    this.submit();
-   console.log(this.myForm);
    this.debugForm = this.myForm.value;
    this.errorsForm = this.myForm.errors;
   } else {
-   console.log('Verificar o form');
-   this.verifyValidationForm(this.myForm);
+
+   // console.log('Verificar o form');
+   // this.verifyValidationForm(this.myForm);
+   this.myForm.markAllAsTouched();
   }
  }
 
@@ -112,24 +116,6 @@ export abstract class CreateInterfaceFormComponent {
    (this.myForm.get(field).touched || this.myForm.get(field).dirty)
   );
  }
-
- verifyMaxAndMinLength(filed: string) {
-  const meuCampo = this.getCampo(filed);
-  console.log(meuCampo.errors);
- }
-
-
- getErrorMessage(campo: string, erroRequired: string, errorPattner?: string) {
-  // console.log("Válido? - "+ campo + this.verifyRequired(campo))
-  // console.log("Campo tocado? " + campo + this.verifyValidTouched(campo))
-  const isCampo = this.getCampo(campo);
-  // isCampo.hasError('required')
-  if (this.verifyRequired(campo)) {
-   return erroRequired;
-  }
-  return isCampo.hasError(campo) ? errorPattner : '';
- }
-
 
  errorMessage(field: string) {
   const myFiled = this.getCampo(field);

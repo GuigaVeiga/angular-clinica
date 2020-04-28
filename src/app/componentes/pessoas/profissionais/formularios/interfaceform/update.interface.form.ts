@@ -1,78 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { ContributorsService } from '../../services/contributors-service.service';
 
 @Component({
  selector: 'app-paciente-form',
  template: '<div></div>',
 })
-export abstract class UpdateInterfaceForm {
-
- dadosEndereco = {
-  id: [null],
-  cep: [null, [
-   Validators.maxLength(9),
-   Validators.minLength(8)
-  ]
-  ],
-  rua: [null],
-  numero: [null],
-  complemento: [null],
-  bairro: [null],
-  cidade: [null],
-  estado: [null],
- };
-
- dadosUsuario = {
-  codigoUsuario: [''],
-  registroClasse: [''],
-  cpf: ['', [Validators.required,
-  Validators.maxLength(11)]],
-  rg: ['', Validators.compose([
-   Validators.minLength(4),
-   Validators.maxLength(8)
-  ])],
-  nome: ['', Validators.compose([
-   Validators.required,
-   Validators.minLength(3),
-   Validators.maxLength(100)
-  ])],
-  sobreNome: [''],
-  dataNascimento: ['', [Validators.required]],
-  idade: [null],
-  genero: [''],
-  email: ['', [Validators.required, Validators.email]],
-  contato: [null],
-  celular: ['', Validators.required],
-  profissao: ['', Validators.required],
-  senha: ['', Validators.required],
-  login: [null],
-  paciente: [null],
-  endereco: this.fb.group(this.dadosEndereco)
- };
+// tslint:disable-next-line: component-class-suffix
+export abstract class UpdateInterfaceFormComponent {
 
  myForm: FormGroup;
  debugForm: any;
  errorsForm: any;
- appearanceField = 'fill';
 
  constructor(
   public fb: FormBuilder,
- ) {
-
- }
+  private serviceProf: ContributorsService
+ ) { }
 
  abstract submit();
 
  onSubmit() {
   if (!this.myForm.invalid) {
    this.submit();
-   console.log(this.myForm);
-   this.debugForm = this.myForm.value;
-   this.errorsForm = this.myForm.errors;
   } else {
    console.log('Verificar o form');
-   this.verifyValidationForm(this.myForm);
+   // this.verifyValidationForm(this.myForm);
+   this.myForm.markAllAsTouched();
+   this.serviceProf.showSnack('Verifique os Campos obrigatórios!', true);
+
+
   }
+
  }
 
  reset() {
@@ -109,36 +68,75 @@ export abstract class UpdateInterfaceForm {
   );
  }
 
- verifyMaxAndMinLength(filed: string) {
-  const meuCampo = this.getCampo(filed);
-  console.log(meuCampo.errors);
- }
-
-
- getErrorMessage(campo: string, erroRequired: string, errorPattner?: string) {
-
-  // console.log("Válido? - "+ campo + this.verifyRequired(campo))
-  // console.log("Campo tocado? " + campo + this.verifyValidTouched(campo))
-
-  const isCampo = this.getCampo(campo);
-  // isCampo.hasError('required')
-  if (this.verifyRequired(campo)) {
-   return erroRequired;
-  }
-
-  return isCampo.hasError(campo) ? errorPattner : '';
- }
-
- errorMessage(field: string) {
-  const myFiled = this.getCampo(field);
-  console.log(myFiled.validator);
-
- }
-
  getCampo(campo: string) {
   return this.myForm.get(campo);
  }
 
+ // tslint:disable-next-line: member-ordering
+ dadosEndereco = {
+  id: [''],
+  cep: ['', [
+   Validators.required,
+   Validators.maxLength(9),
+   Validators.minLength(8)
+  ]
+  ],
+  rua: [''],
+  numero: [''],
+  complemento: [''],
+  bairro: [''],
+  cidade: [''],
+  estado: [''],
+ };
+
+ // tslint:disable-next-line: member-ordering
+ dadosUsuario = {
+  id: [''],
+  codigoUsuario: [''],
+  registroClasse: [''],
+  cpf: ['', Validators.compose([Validators.required,
+  Validators.maxLength(11), Validators.minLength(11)]),
+  ],
+  rg: ['', Validators.compose([
+   Validators.minLength(4),
+   Validators.maxLength(8),
+  ])],
+  nome: ['', Validators.compose([
+   Validators.required,
+   Validators.pattern('^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$'),
+   Validators.minLength(3),
+   Validators.maxLength(100)
+  ])],
+  sobreNome: [''],
+  dataNascimento: ['', [Validators.required]],
+  idade: ['', [Validators.minLength(1)]],
+  genero: [''],
+  email: ['', [Validators.required, Validators.email]],
+  contato: [''],
+  celular: ['', Validators.required],
+  profissao: ['', Validators.required],
+  senha: ['', Validators.required],
+  login: [''],
+  paciente: [null],
+  endereco: this.fb.group(this.dadosEndereco)
+ };
+
+ get email(): any { return this.myForm.get('email'); }
+ get nome(): any { return this.getCampo('nome'); }
+ get sobreNome(): any { return this.getCampo('sobreNome'); }
+ get cpf(): any { return this.getCampo('cpf'); }
+ get rg(): any { return this.getCampo('rg'); }
+ get dataNascimento(): any { return this.getCampo('dataMascimento'); }
+ get registroClasse(): any { return this.getCampo('registroClasse'); }
+ get genero(): any { return this.getCampo('genero'); }
+ get contato(): any { return this.getCampo('contato'); }
+ get profissao(): any { return this.getCampo('profissao'); }
+ get login(): any { return this.getCampo('login'); }
+ get repeteSenha(): any { return this.getCampo('repeteSenha'); }
+ get senha(): any { return this.getCampo('senha'); }
+ get celular(): any { return this.getCampo('celular'); }
+ get idade(): any { return this.getCampo('idade'); }
+ get cep(): any { return this.getCampo('cep'); }
 
 
 }

@@ -3,21 +3,21 @@
 
 .container-create {
 	margin-top: 64px;
-
 }
 
-.form-cad {
+h2 {
+ margin-top: 16px;
+}
+
+/* .form-cad {
 	padding-left: 30px;
 	padding-right: 30px;
-	display: flex;
-	flex-direction: column;
-}
+} */
 
-
-mat-form-field {
-	width: 100%;
-	margin-left: 8px;
-}
+/* mat-form-field { */
+	/* width: 100%; */
+	/* margin-left: 8px; */
+/* } */
 
 
 button {
@@ -33,16 +33,13 @@ button {
 	margin-right: 18px;
   }
 
-  mat-radio-group {
-	  display: inline;
-	  align-items: flex-start;
-	  /* justify-self: start; */
-	   /* text-justify: initial; */
-	   align-content: initial;
+  .genero-rotulo {
+   margin-right: 16px;
   }
 
-  .container {
-	  width: 50px;
-	  height: 50px;
-	  background-color: grey;
-  }
+  /* mat-radio-group {
+	  display: inline;
+	  align-items: flex-start;
+	   align-content: initial;
+  } */
+

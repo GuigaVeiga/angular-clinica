@@ -11,10 +11,11 @@ import { NavComponent } from './componentes/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 import { PatientComponent } from './views/registers/patient/patient.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { ContributorModule } from './componentes/pessoas/profissionais/contributor.module';
 import { MaterialModule } from './material/material.module';
+import { PacientesComponent } from './componentes/pessoas/pacientes/pacientes.component';
 
 @NgModule({
  declarations: [
@@ -25,6 +26,7 @@ import { MaterialModule } from './material/material.module';
   HomeComponent,
   ContributorsComponent,
   PatientComponent,
+  PacientesComponent,
   // PatientCreateComponent,
 
  ],

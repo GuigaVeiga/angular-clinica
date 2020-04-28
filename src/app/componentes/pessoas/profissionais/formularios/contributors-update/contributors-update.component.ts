@@ -2,17 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ContributorsService } from '../../services/contributors-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Contributors } from '../../models/contributors.model';
-import { CreateInterfaceFormComponent } from 'src/app/componentes/pessoas/profissionais/formularios/interfaceform/create.interface.form';
+import { UpdateInterfaceFormComponent } from 'src/app/componentes/pessoas/profissionais/formularios/interfaceform/update.interface.form';
 import { FormBuilder } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
  selector: 'app-contributors-update',
  templateUrl: './contributors-update.component.html',
  styleUrls: ['./contributors-update.component.css']
 })
-export class ContributorsUpdateComponent extends CreateInterfaceFormComponent implements OnInit {
+export class ContributorsUpdateComponent extends UpdateInterfaceFormComponent implements OnInit {
 
  contributors: Contributors;
+ profSub: Subscription;
+ id: any;
 
  constructor(
   public fb: FormBuilder,
@@ -20,40 +23,44 @@ export class ContributorsUpdateComponent extends CreateInterfaceFormComponent im
   private router: ActivatedRoute,
   private routeNav: Router
  ) {
-  super(fb);
+  super(fb, serviceCont);
+
+  this.myForm = this.fb.group(this.dadosUsuario);
  }
+
 
  ngOnInit(): void {
-  const id = this.router.snapshot.paramMap.get('id');
-  console.log('id - ' + id);
+  this.id = this.router.snapshot.paramMap.get('id');
 
-  this.serviceCont.readById(id).subscribe(cont => {
-   this.contributors = cont;
+  console.log(this.id);
+
+  this.profSub = this.serviceCont.readById(this.id).subscribe(profissional => {
+   // this.dadosUsuario = profissional;
+   // this.myForm = this.fb.group(this.dadosUsuario);
+   // this.myForm.setValue(profissional);
+   this.myForm.patchValue(profissional);
   });
  }
 
- submit() {
-  this.updateContributors();
-  }
+ submit(): void {
 
- updateContributors(): void {
-  this.serviceCont.update(this.contributors).subscribe(() => {
-   this.serviceCont.showSnack('Dados Atualizado!');
-   this.onCancel();
-  });
+  if (this.myForm.valid) {
+   console.log('profissional ' + this.myForm.value);
+   this.serviceCont.update(this.myForm.value).subscribe((vl) => {
+    console.log(vl);
+    this.serviceCont.showSnack('Dados Atualizado!');
+    // navegar para pagina do profissional
+    this.retornarPaginaPrincipal();
+   });
+  }
  }
 
  onCancel(): void {
-  this.routeNav.navigate(['/infor-profissional']);
+  this.retornarPaginaPrincipal();
  }
 
-
- get email() { return this.myForm.get('email'); }
- get nome() { return this.getCampo('nome'); }
- get sobreNome() { return this.getCampo('sobreNome'); }
- get cpf() { return this.getCampo('cpf'); }
- get rg() { return this.getCampo('rg'); }
- get dataNascimento() { return this.getCampo('dataMascimento'); }
-
+ retornarPaginaPrincipal(): void {
+  this.routeNav.navigate(['/infor-profissional']);
+ }
 
 }

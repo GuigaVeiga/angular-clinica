@@ -1,4 +1,6 @@
 <ng-container *ngIf="erros && erros['required']">Campo Obrigatório</ng-container>
-<ng-container *ngIf="erros && erros['maxlength']">Ultrapassou o número máximo de 100 Caracteres </ng-container>
-<ng-container *ngIf="erros && erros['minlength']"> Não atingiu o número minimo de 3 Caracteres </ng-container>
+<ng-container *ngIf="erros && erros['maxlength']">Ultrapassou o número máximo de Caracteres </ng-container>
+<ng-container *ngIf="erros && erros['minlength']"> Não atingiu o número minimo de Caracteres </ng-container>
 <ng-container *ngIf="erros && erros['pattern']"> Aceita somente letras </ng-container>
+<ng-container *ngIf="erros && erros['max']"> Verifique o número máximo deste campo </ng-container>
+<ng-container *ngIf="erros && erros['min']"> Verifique o número mínimo deste campo </ng-container>

@@ -26,9 +26,10 @@ export class ContributorsReadComponent implements OnInit, OnDestroy {
  ) { }
 
  ngOnInit(): void {
-// Iniciar a tabela com os dados.
+  // Iniciar a tabela com os dados.
 
   this.subs = this.serviceCont.read().subscribe((cont) => {
+   console.log('teste' + JSON.stringify(cont));
    this.contributors = cont;
   });
  }

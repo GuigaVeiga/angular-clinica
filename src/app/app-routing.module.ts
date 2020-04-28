@@ -23,6 +23,8 @@ const routes: Routes = [
    .then(m => m.ContributorModule)
  },
 
+ { path: 'paciente', loadChildren: () => import('./componentes/pessoas/pacientes/paciente.module').then(m => m.PacienteModule) },
+
  // { path: "cont/:id", component: ContributorsComponent},
  // {path: 'cont/create', component: ContributorsCreateComponent},
  // { path: "cont/update/:id", component: ContributorsUpdateComponent},

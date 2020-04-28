@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
  providedIn: 'root'
 })
 export class ContributorsService {
- baseUrl = 'http://localhost:3001/colaboradores';
+ baseUrl = 'http://localhost:3002/colaboradores';
 
  constructor(
   private snackBar: MatSnackBar,
@@ -53,13 +53,12 @@ export class ContributorsService {
 
   const url = `${this.baseUrl}/${cont.id}`;
 
-  return this.http.put<Contributors>(url, cont);
+  return this.http.patch<Contributors>(url, cont);
  }
+
 
  delete(id: string): Observable<Contributors> {
   const url = `${this.baseUrl}/${id}`;
-
-  console.log(id);
 
   return this.http.delete<Contributors>(url);
  }
@@ -69,6 +68,7 @@ export class ContributorsService {
   this.showSnack('Ocorreu um Erro', true);
   return EMPTY;
  }
+
 
  refreshData(): void {
   this.read();

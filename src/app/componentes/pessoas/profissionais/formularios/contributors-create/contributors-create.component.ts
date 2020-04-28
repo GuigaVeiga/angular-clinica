@@ -43,22 +43,18 @@ export class ContributorsCreateComponent extends CreateInterfaceFormComponent im
      this.myForm.reset();
      this.myForm.clearValidators();
     });
-  } else {
-
-   this.myForm.markAllAsTouched();
-
-   this.serviceCont.showSnack('Verifique os Campos obrigatórios!', true);
-   //  Object.keys(this.myForm.controls).forEach(element => {
-   // 	 const control = this.myForm.get(element)
-   // 	 console.log()
-   // 	});
   }
+  this.serviceCont.showSnack('Verifique os Campos obrigatórios!', true);
+ }
+
+ onCancel() {
+  this.router.navigate(['/infor-profissional']);
  }
 
  ngOnDestroy() {
   this.myForm.reset();
 
-  if ( this.inscricaoServ ) {
+  if (this.inscricaoServ) {
    this.inscricaoServ.unsubscribe();
   }
  }
@@ -80,8 +76,6 @@ export class ContributorsCreateComponent extends CreateInterfaceFormComponent im
  get idade() { return this.getCampo('idade'); }
  get cep() { return this.getCampo('cep'); }
 
- onCancel() {
-  this.router.navigate(['/infor-profissional']);
- }
+
 
 }
