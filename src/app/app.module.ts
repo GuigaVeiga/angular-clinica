@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { ContributorModule } from './componentes/pessoas/profissionais/contributor.module';
 import { MaterialModule } from './material/material.module';
 import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module';
+import { ChartModule } from 'angular2-chartjs';
+
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module'
   HttpClientModule,
   ContributorModule,
   MaterialModule,
-  PacienteModule
+  PacienteModule,
+  ChartModule
  ],
  providers: [],
  bootstrap: [AppComponent]

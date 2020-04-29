@@ -1,16 +1,48 @@
-<div class="container">
-  <button mat-raised-button color='primary' (click)="cadastrarPaciente()">
-    Novo Paciente
-  </button>
-</div>
+<div fxLayout='column'>
 
-<div class="container-paciente">
+  <div class="container">
+    <button mat-raised-button color='primary' (click)="cadastrarPaciente()">
+      Novo Paciente
+    </button>
+  </div>
 
-  <mat-card class="home mat-elevation-z3">
-    <mat-card-title class="title">Pacientes</mat-card-title>
-    <mat-card-subtitle class="subtitle">
-      Área em desenvolvimento.
-    </mat-card-subtitle>
-  </mat-card>
+  <div class="container-paciente">
+
+    <mat-card class="home mat-elevation-z3">
+      <mat-card-title class="title">Pacientes</mat-card-title>
+      <mat-card-subtitle class="subtitle">
+        Área em desenvolvimento.
+      </mat-card-subtitle>
+    </mat-card>
+  </div>
+
+  <div fxLayout='row'    >
+
+      <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%' fxFlexAlign='center' >
+        <mat-card-title class="title"></mat-card-title>
+        <mat-card-subtitle class="subtitle">
+          Informações de Atendimentos aos Pacientes
+        </mat-card-subtitle>
+        <div>
+          <chart [type]="type" [data]="data" [options]="options"></chart>
+        </div>
+      </mat-card>
+      
+
+      <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%' >
+        <mat-card-title class="title"></mat-card-title>
+        <mat-card-subtitle class="subtitle">
+          Informações de Atendimentos aos Pacientes
+        </mat-card-subtitle>
+        <div>
+          <chart type="pie" [data]="dataSet2"></chart>
+        </div>
+      </mat-card>
+
+
+
+
+      <div class="offSet" ></div>
+  </div>
 
 </div>
