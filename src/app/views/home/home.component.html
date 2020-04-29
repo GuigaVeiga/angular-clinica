@@ -9,17 +9,17 @@
 	
 </div>
 
-<div fxLayout='column'>
+<div fxLayout='column' class="feed-grafico">
 
  <div fxLayout='row'    >
 
      <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%' fxFlexAlign='center' >
        <mat-card-title class="title"></mat-card-title>
        <mat-card-subtitle class="subtitle">
-         Informações de Atendimentos aos Pacientes
+         Dados: 
        </mat-card-subtitle>
        <div>
-         <chart type="bar" [data]="data" [options]="options"></chart>
+         <chart [type]="type" [data]="data" [options]="options"></chart>
        </div>
      </mat-card>
      

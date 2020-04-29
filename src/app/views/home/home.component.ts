@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/componentes/template/header/header.service';
+import { PatternValidator } from '@angular/forms';
 
 
 @Component({
@@ -17,26 +18,35 @@ export class HomeComponent implements OnInit {
   };
  }
 
- data: {
-  datasets: [{
-      barPercentage: 0.5,
-      barThickness: 'flex',
-      maxBarThickness: 8,
-      minBarLength: 2,
-      data: [10, 20, 30],
-      backgroundColor: ['purple', 'blue', 'orange']
-  }],
-  label: ['teste1', 'teste2', 'teste3'];
-};
+ // data: {
+ //  labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
+ //  datasets: [{
+ //   label: 'Fluxo de Atendimento.',
+ //   data: [65, 59, 80, 81, 56, 55, 40],
+ //   backgroundColor: ['blue', 'orange', 'yellow', 'gray', 'red', 'purple', 'red'],
+ //  }
+ //  ],
+ // };
+ // type: 'line';
+ // options: {
+ //  responsive: true,
+ //  maintainAspectRatio: true
+ // };
 
-options: {} = {
- scales: {
-     xAxes: [{
-         gridLines: {
-             offsetGridLines: true
-         }
-     }]
- }
+ type = 'line';
+data = {
+  labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
+  datasets: [
+    {
+      label: 'Atendimentos',
+      data: [27, 20, 78, 50, 48, 57, 89],
+      borderColor: '#ff6384',
+    }
+  ]
+};
+options = {
+  responsive: true,
+  maintainAspectRatio: false
 };
 
  ngOnInit(): void {

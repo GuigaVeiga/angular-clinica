@@ -44,7 +44,15 @@ export class DatagraphicService {
    type: 'line',
    options: {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    layout: {
+     padding: {
+      left: 10,
+      right: 10,
+      top: 10,
+      bottom: 10
+     }
+    }
    }
   };
  }
