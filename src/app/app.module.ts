@@ -10,12 +10,13 @@ import { FooterComponent } from './componentes/template/footer/footer.component'
 import { NavComponent } from './componentes/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { ContributorsComponent } from './views/registers/contributors/contributors.component';
-import { PatientComponent } from './views/registers/patient/patient.component';
+import { BasePacienteComponent } from './views/registers/base-paciente/base.paciente.component';
 import { FormsModule } from '@angular/forms';
 
 import { ContributorModule } from './componentes/pessoas/profissionais/contributor.module';
 import { MaterialModule } from './material/material.module';
-import { PacientesComponent } from './componentes/pessoas/pacientes/pacientes.component';
+import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module';
+
 
 @NgModule({
  declarations: [
@@ -25,9 +26,8 @@ import { PacientesComponent } from './componentes/pessoas/pacientes/pacientes.co
   NavComponent,
   HomeComponent,
   ContributorsComponent,
-  PatientComponent,
-  PacientesComponent,
-  // PatientCreateComponent,
+  BasePacienteComponent,
+  BasePacienteComponent,
 
  ],
  imports: [
@@ -38,6 +38,7 @@ import { PacientesComponent } from './componentes/pessoas/pacientes/pacientes.co
   HttpClientModule,
   ContributorModule,
   MaterialModule,
+  PacienteModule
  ],
  providers: [],
  bootstrap: [AppComponent]

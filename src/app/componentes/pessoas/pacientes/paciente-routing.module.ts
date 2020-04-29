@@ -4,11 +4,12 @@ import { CriarPacienteComponent } from './formularios/criar-paciente/criar-pacie
 
 
 const routes: Routes = [
- { path: '', component: CriarPacienteComponent }
+ { path: '', redirectTo: 'new', pathMatch: 'full' },
+ { path: 'new', component: CriarPacienteComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+ imports: [RouterModule.forChild(routes)],
+ exports: [RouterModule]
 })
 export class PacienteRoutingModule { }

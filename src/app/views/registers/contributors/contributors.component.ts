@@ -18,7 +18,7 @@ export class ContributorsComponent implements OnInit {
   this.headerService.headerData = {
    title: 'Profissionais',
    icon: 'list',
-   routerUrl: '/cont',
+   routerUrl: '/profissional',
   };
  }
 
