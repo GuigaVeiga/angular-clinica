@@ -1,5 +1,5 @@
 
-export interface Andress {
+export interface Endereco {
  id?: number;
  cep: number;
  rua: string;

@@ -1,4 +1,3 @@
-import { Patient } from './patient.model';
 import { Andress } from '../../../shared/model-andress';
 
 export interface Contributors {
@@ -16,7 +15,7 @@ export interface Contributors {
  contato?: number;
  celular?: number;
  profissao: string;
- paciente?: Patient[];
+ paciente?: string;
  senha?: string;
  login?: string;
 

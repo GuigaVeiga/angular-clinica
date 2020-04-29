@@ -1,1 +1,190 @@
-<p>criar-paciente works!</p>
+<div class="container-create">
+ <!-- fxLayout='column' fxLayoutAlign="space-between" -->
+
+ <mat-card>
+   <mat-card-title>
+     Novo Profissional
+   </mat-card-title>
+
+   <mat-card-content>
+     <form class="form-cad">
+       <div fxLayout='row wrap' fxLayout.xs="column" fxLayoutGap="4px" fxLayoutGap.xs="1px"
+         fxLayoutAlign="space-around center">
+
+         <div fxLayoutAlign='center' fxFill>
+           <h2>Perfil</h2>
+         </div>
+
+         <mat-form-field hideRequiredMarker fxFlex='46'>
+           <mat-label>Nome *</mat-label>
+           <input matInput placeholder="Primeiro Nome" type="text" name="nome" appCellMask>
+           <!-- <mat-error *ngIf="nome?.invalid">
+             <app-erros-validacao></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Sobre Nome</mat-label>
+           <input matInput placeholder="Restante do Nome" type="text" name="sobreNome" >
+           <!-- <mat-error *ngIf="sobreNome?.invalid">
+             <app-erros-validacao [erros]="sobreNome?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>CPF *</mat-label>
+           <input matInput #input maxlength="11" placeholder="CPF" name="cpf" type="number" >
+           <mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
+           <!-- <mat-error *ngIf="cpf?.invalid">
+             <app-erros-validacao [erros]="cpf?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>RG *</mat-label>
+           <input matInput placeholder="rg" name="rg" type="number" >
+           <!-- <mat-error *ngIf="rg?.invalid">
+             <app-erros-validacao [erros]="rg?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Data de Nascimento</mat-label>
+           <input matInput placeholder="Data de Nascimento" name="dataNascimento" type="date"
+             >
+           <!-- <mat-error *ngIf="dataNascimento?.invalid">
+             <app-erros-validacao [erros]="dataNascimento?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Idade</mat-label>
+           <input matInput placeholder="Idade" name="idade" type="number" >
+           <!-- <mat-error *ngIf="idade?.invalid">
+             <app-erros-validacao [erros]="idade?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <div fxFlex='46'>
+           <mat-radio-group name='genero' aria-label="Select an option" aria-labelledby="genero"
+             formControlName="genero">
+             <mat-label class="genero-rotulo">Gênero: </mat-label>
+             <mat-radio-button class="mat-radio-button" id="masculino" arial-label='genero.masculino' value="M">
+               Masculino
+             </mat-radio-button>
+             <mat-radio-button class="mat-radio-button" id="feminino" aria-label="genero.feminino" value="F">Feminino
+             </mat-radio-button>
+           </mat-radio-group>
+         </div>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>E-mail</mat-label>
+           <input matInput placeholder="user@email.com" name="email" type="email" >
+           <!-- <mat-error *ngIf="email?.invalid">
+             <app-erros-validacao [erros]="email?.errors"></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Senha *</mat-label>
+           <input matInput placeholder="Senha" name="senha" type='text' >
+           <!-- <mat-error *ngIf="senha?.invalid">
+             <app-erros-validacao [erros]="senha?.errors"></app-erros-validacao>
+           </mat-error> -->
+
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Confirmar a senha</mat-label>
+           <input matInput placeholder="Confirme a senha" name="repete-senha" type="text" 
+             style="display: ruby-base;">
+           <!-- <mat-error *ngIf="repeteSenha?.invalid">
+             <app-erros-validacao [erros]='repeteSenha?.errors'></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Profissão *</mat-label>
+           <input matInput placeholder="Profissão" name="profissao" type="text" >
+           <!-- <mat-error *ngIf="profissao.invalid" >
+             <app-erros-validacao [erros]='profissao?.errors'></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Telefone Fixo</mat-label>
+           <input matInput placeholder="Contato Fixo" name="contato" type="tel" >
+           <!-- <mat-error *ngIf="contato?.invalid">
+             <app-erros-validacao [erros]='contato?.errors'></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+
+         <mat-form-field fxFlex='46'>
+           <mat-label>Celular *</mat-label>
+           <input matInput placeholder="Celular (Whatsapp)" name="celular" type="text" >
+           <!-- <mat-error *ngIf="celular?.invalid">
+             <app-erros-validacao [erros]='celular?.errors'></app-erros-validacao>
+           </mat-error> -->
+         </mat-form-field>
+         <div fxFlexOffset='46'></div>
+
+
+         <!-- ENDEREÇO -->
+         <div fxLayoutAlign='center' fxFill>
+           <h2 class="title-address"> Endereço </h2>
+         </div>
+
+         <div formGroupName="endereco" fxLayout.xs='column' fxLayout='row wap' fxLayoutGap="4px" fxLayoutGap.xs="1px"
+           fxLayoutAlign="space-around center">
+           <mat-form-field fxFlex='46'>
+             <mat-label>CEP *</mat-label>
+             <input matInput placeholder="CEP" name="cep" type="number" >
+             <!-- <mat-error *ngIf="cep?.invalid">
+               <app-erros-validacao [erros]='cep?.errors'></app-erros-validacao>
+             </mat-error> -->
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46'>
+             <mat-label>Rua </mat-label>
+             <input matInput placeholder="Rua: silveira..." name="rua" type="text" >
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46'>
+             <mat-label>N° </mat-label>
+             <input matInput placeholder="Numero" name="numero" type="number" >
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46'>
+             <mat-label>Complemento </mat-label>
+             <input matInput placeholder="BLoco A, Apt. 101" name="complemento" type="text">
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46'>
+             <mat-label>Bairro</mat-label>
+             <input matInput placeholder="Bairro" name="logradouro" type="text" >
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46'>
+             <mat-label>Cidade</mat-label>
+             <input matInput placeholder="Cidade" name="cidade" >
+           </mat-form-field>
+
+           <mat-form-field fxFlex='46' dir='ltr'>
+             <mat-label>Estado</mat-label>
+             <input matInput placeholder="UF: " name="uf" >
+           </mat-form-field>
+           <div fxFlexOffset='46'></div>
+
+         </div>
+       </div>
+     </form>
+   </mat-card-content>
+
+   <mat-card-actions>
+     <button mat-raised-button color="primary" > Salvar </button>
+     <button mat-raised-button color="default" > Cancelar </button>
+   </mat-card-actions>
+
+ </mat-card>
+</div>
+
