@@ -11,12 +11,12 @@
 
 <div fxLayout='column' class="feed-grafico">
 
- <div fxLayout='row'    >
+ <!-- <div fxLayout='row'    > -->
+  <!-- fxFlexAlign='center' -->
 
-     <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%' fxFlexAlign='center' >
+     <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%'  >
        <mat-card-title class="title"></mat-card-title>
        <mat-card-subtitle class="subtitle">
-         Dados: 
        </mat-card-subtitle>
        <div>
          <chart [type]="type" [data]="data" [options]="options"></chart>
@@ -27,14 +27,19 @@
      <mat-card class="home mat-elevation-z3" class="container-inforgrafico" fxFlex='50%' >
        <mat-card-title class="title"></mat-card-title>
        <mat-card-subtitle class="subtitle">
-         Informações de Atendimentos aos Pacientes
+        
        </mat-card-subtitle>
-       <div>
-         <!-- <chart type="pie" [data]="dataSet2"></chart> -->
+       <div class="infor-bar">
+         <chart [type]="type2" [data]="data2" [options]='options2'></chart>
        </div>
      </mat-card>
 
-     <div class="offSet" ></div>
- </div>
+     
+    <!-- </div> -->
+    
+    <div class="offSet" ></div>
+
+
+
 
 </div>
