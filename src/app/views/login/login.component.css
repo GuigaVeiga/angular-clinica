@@ -1,0 +1,62 @@
+.container {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ background-color:  rgb(133, 143, 133, 0.6);
+}
+
+.container {
+ margin-top: 2rem;
+ justify-content: center;
+}
+
+mat-card {
+ display: flex;
+ flex-direction: column;
+ width: 15rem;
+ height: 20rem;
+}
+
+mat-card {
+ margin: 4px;
+ align-items: center;
+}
+
+/* espacamento entre o topo e o primeiro input */
+.icon {
+ margin-top: 2rem;
+}
+
+/* imagem de fundo */
+mat-card {
+ background-image: url("../../../assets/fake3.jpg" );
+ background-repeat: no-repeat;
+ background-color: none;
+ background-position: center top;
+ background-size: 100px 100px;
+ /* background-size: cover; */
+}
+
+small {
+ color: gray;
+}
+
+.title {
+ 
+ /* border: 5px solid gray; */
+ letter-spacing: 5px;
+ font-weight: bold;
+ color: rgba(11, 42, 128, 0.883);
+}
+
+
+@media (min-width: 600){
+ .container {
+  flex-direction: column;
+
+ }
+
+ small {
+  display: none;
+ }
+}

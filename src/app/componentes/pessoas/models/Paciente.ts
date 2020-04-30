@@ -1,12 +1,11 @@
 import { Endereco } from './endereco';
 import { Pessoa } from './pessoa';
 
-export interface Paciente implements Pessoa {
+export class Paciente extends Pessoa {
 
  dataNascimento?: Date;
  idade?: number;
  genero?: string;
- celular?: number;
  profissao: string;
  senha?: string;
  login?: string;

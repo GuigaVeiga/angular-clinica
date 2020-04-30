@@ -29,9 +29,7 @@ export class ContributorsDeleteComponent implements OnInit, OnDestroy {
 
  }
 
-
  onClickDelete() {
-  console.log(this.matDialogRef);
 
   this.matDialogRef.afterClosed().subscribe(val => {
 

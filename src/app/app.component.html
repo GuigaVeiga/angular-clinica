@@ -1,3 +1,11 @@
-<app-header></app-header>
-<app-nav></app-nav>
-<app-footer></app-footer>
+<div *ngIf='isAutenticate'>
+
+ <app-header></app-header>
+ <app-nav></app-nav>
+ <app-footer></app-footer>
+
+</div>
+ 
+<div *ngIf='!isAutenticate'>
+ <app-login></app-login>
+</div>

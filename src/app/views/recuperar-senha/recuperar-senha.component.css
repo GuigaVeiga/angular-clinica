@@ -1,0 +1,21 @@
+.container {
+ display: flex;
+ flex-direction: column;
+
+}
+
+.container {
+ /* align-content: center;
+  */
+  align-items: center;
+}
+
+.actions {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+mat-form-field {
+ width: 20rem;
+}

@@ -5,6 +5,9 @@ import { HomeComponent } from './views/home/home.component';
 import { ProfissionalRoutingModule } from './componentes/pessoas/profissionais/contribuitor-routing.module';
 import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 import { BasePacienteComponent } from './views/registers/base-paciente/base.paciente.component';
+import { LoginComponent } from './views/login/login.component';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { RecuperarSenhaComponent } from './views/recuperar-senha/recuperar-senha.component';
 // import { ContributorsComponent } from './views/registers/contributors/contributors.component';
 // import { SocietyComponent } from './views/registers/society/society.component';
 // import { ContributorsCreateComponent } from './components/people/contributors/contributors-create/contributors-create.component';
@@ -14,23 +17,31 @@ import { BasePacienteComponent } from './views/registers/base-paciente/base.paci
 
 const routes: Routes = [
 
+ { path: 'login', component: LoginComponent },
+ // {path: 'recuperar', component: RecuperarSenhaComponent},
  { path: '', redirectTo: '/home', pathMatch: 'full' },
- { path: 'home', component: HomeComponent },
+ {
+  path: 'home', component: HomeComponent,
+  canActivate: [AuthGuardGuard]
+ },
 
  {
-  path: 'paciente', component: BasePacienteComponent
+  path: 'paciente', component: BasePacienteComponent,
+  canActivate: [AuthGuardGuard]
  },
  {
   path: 'paciente/cadastrar',
   loadChildren: () => import('./componentes/pessoas/pacientes/paciente.module')
-   .then(m => m.PacienteModule)
+   .then(m => m.PacienteModule),
+  canActivate: [AuthGuardGuard]
  },
 
  { path: 'profissional', component: ContributorsComponent },
  {
   path: 'profissional/cadastrar',
   loadChildren: () => import('./componentes/pessoas/profissionais/contributor.module')
-   .then(m => m.ContributorModule)
+   .then(m => m.ContributorModule),
+  canActivate: [AuthGuardGuard]
  },
 
  // { path: 'create', loadChildren: () => import('./componentes/pessoas/pacientes/paciente.module').then(m => m.PacienteModule) },

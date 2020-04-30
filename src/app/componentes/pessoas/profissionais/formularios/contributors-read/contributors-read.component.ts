@@ -36,7 +36,6 @@ export class ContributorsReadComponent implements OnInit, OnDestroy {
 
  // Abrirá um component modal para confirmar o deletar 
  onDelete(id: number) {
-  console.log(typeof (id));
   const dialogRef = this.dialog.open(ContributorsDeleteComponent, {
    width: '300px',
    data: { id }

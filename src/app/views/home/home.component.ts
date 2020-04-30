@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderService } from 'src/app/componentes/template/header/header.service';
-import { ChartComponent } from 'angular2-chartjs'
+import { ChartComponent } from 'angular2-chartjs';
 
 @Component({
  selector: 'app-home',
@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit {
 
  constructor(private headerService: HeaderService) {
   headerService.headerData = {
-   title: 'Infor Gerais',
-   icon: 'home',
+   title: 'DashBoard',
+   icon: 'dashboard',
    routerUrl: '/home',
   };
  }

@@ -17,9 +17,12 @@ import { ContributorModule } from './componentes/pessoas/profissionais/contribut
 import { MaterialModule } from './material/material.module';
 import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module';
 import { ChartModule } from 'angular2-chartjs';
-import { RegistersComponent } from './fabcode/angular-clinica/src/app/views/registers/registers.component';
-import { AgendamentoComponent } from './agendamento/agendamento.component';
-
+// import { RegistersComponent } from './views/registers/registers.component';
+// import { AgendamentoComponent } from './agendamento/agendamento.component';
+import { LoginComponent } from './views/login/login.component';
+import { AgendamentoComponent } from './views/registers/agendamento/agendamento.component';
+import { LogoutComponent } from './views/logout/logout.component';
+import { RecuperarSenhaComponent } from './views/recuperar-senha/recuperar-senha.component';
 
 
 @NgModule({
@@ -32,9 +35,10 @@ import { AgendamentoComponent } from './agendamento/agendamento.component';
   ContributorsComponent,
   BasePacienteComponent,
   BasePacienteComponent,
-  RegistersComponent,
   AgendamentoComponent,
-
+  LoginComponent,
+  LogoutComponent,
+  RecuperarSenhaComponent,
  ],
  imports: [
   BrowserModule,

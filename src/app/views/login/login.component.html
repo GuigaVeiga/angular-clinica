@@ -1,0 +1,27 @@
+<div class="container">
+
+  <mat-card >
+    <mat-card-title class="title"> Login </mat-card-title>
+    <mat-icon class="icon"><i class="material-icons">people</i></mat-icon>
+    <mat-card-content class="content">
+     <div class="input email">
+      <mat-form-field>
+       <mat-label>E-mail:</mat-label>
+       <input matInput  name='email' placeholder="E-mail" type='email' required [(ngModel)]='email'>
+      </mat-form-field>
+     </div>
+
+     <div class="input senha">
+      <mat-form-field>
+       <mat-label>Senha:</mat-label>
+       <input matInput  placeholder="E-mail" name='senha' type='text' required [(ngModel)]='senha' >
+      </mat-form-field>
+     </div>
+     <small class="texto-small">Esqueceu a senha? clique <a (click)='recuperarSenha()' >aqui</a></small>
+    </mat-card-content>
+    <mat-card-actions>
+     <button mat-raised-button color='primary' (click)='logar()'>LOGAR</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
