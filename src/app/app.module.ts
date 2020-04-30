@@ -17,6 +17,8 @@ import { ContributorModule } from './componentes/pessoas/profissionais/contribut
 import { MaterialModule } from './material/material.module';
 import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module';
 import { ChartModule } from 'angular2-chartjs';
+import { RegistersComponent } from './fabcode/angular-clinica/src/app/views/registers/registers.component';
+import { AgendamentoComponent } from './agendamento/agendamento.component';
 
 
 
@@ -30,6 +32,8 @@ import { ChartModule } from 'angular2-chartjs';
   ContributorsComponent,
   BasePacienteComponent,
   BasePacienteComponent,
+  RegistersComponent,
+  AgendamentoComponent,
 
  ],
  imports: [
