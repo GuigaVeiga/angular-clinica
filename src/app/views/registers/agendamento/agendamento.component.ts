@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
 
 @Component({
   selector: 'app-agendamento',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agendamento.component.css']
 })
 export class AgendamentoComponent implements OnInit {
+  calendarPlugins = [dayGridPlugin];
 
   constructor() { }
 

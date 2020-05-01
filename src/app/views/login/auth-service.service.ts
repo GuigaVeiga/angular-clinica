@@ -18,8 +18,8 @@ export class AuthServiceService {
  fazerLogin(email: string, senha: string) {
 
   if (
-   email === 'admin@email.com' &&
-   senha === '123456'
+   email === 'admin' &&
+   senha === '123'
   ) {
    this.usuarioAutenticado = true;
    this.mostrarNavBar.emit(true);

@@ -17,6 +17,8 @@ import { ContributorModule } from './componentes/pessoas/profissionais/contribut
 import { MaterialModule } from './material/material.module';
 import { PacienteModule } from './componentes/pessoas/pacientes/paciente.module';
 import { ChartModule } from 'angular2-chartjs';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+
 // import { RegistersComponent } from './views/registers/registers.component';
 // import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { LoginComponent } from './views/login/login.component';
@@ -49,7 +51,9 @@ import { RecuperarSenhaComponent } from './views/recuperar-senha/recuperar-senha
   ContributorModule,
   MaterialModule,
   PacienteModule,
-  ChartModule
+  ChartModule,
+  FullCalendarModule
+
  ],
  providers: [],
  bootstrap: [AppComponent]
